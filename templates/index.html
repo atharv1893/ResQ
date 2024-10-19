@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResQ</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- Google Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Top gradient section -->
+    <div class="top-grad"></div>
+
+    <!-- Image container with ResQ logo and prompt -->
+    <div class="image-container" id="image-container">
+        <img src="/static/images/ResQ.png" alt="ResQ logo">
+        <h2>How can I help you?</h2>
+    </div>
+
+    <!-- Chat form input -->
+    <form id="chat-form">
+        <input type="text" id="user-input" placeholder="Type a message...">
+
+    </form>
+    <button id="start-btn" onclick="voice()">
+
+       <img src = "/static/images/mic_59dp_212121_FILL0_wght400_GRAD0_opsz48.png">
+        
+    </button>
+
+    <!-- Start recording button -->
+
+    <!-- Submit button with image -->
+    <button id="submit-btn">
+        <img src="/static/images/send.png" alt="Send Button">
+    </button>
+
+    <!-- Output area for responses -->
+    <div class="output_area" id="output-area"></div>
+
+    <!-- Disclaimer section -->
+    <div class="disclaimer">
+        <p>ResQ can make mistakes. Check important info.</p>
+    </div>
+
+    <!-- Bottom gradient section -->
+    <div class="bottom-grad"></div>
+
+    <!-- Link to external JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,404 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+  /* Specify the dimensions of the map container */
+  * {
+      margin: 0;
+      padding: 0;
+  }
+
+  #map {
+      width: 100%;
+      height: 100vh;
+      cursor:pointer
+  }
+  #centerButton {
+      position: fixed;
+      top:100px; 
+      right: 10px; 
+      z-index: 1; 
+      background-color: #ffffff;
+      color: #333333;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width:30px;
+      height:30px;
+  }
+  
+  #centerButton img{
+    height:0.5cm;
+    width:0.5cm;
+  }
+  #profession{
+    height:1cm;
+    width:8cm;
+    position: absolute;
+    top:1cm;
+    left:2cm;
+    border-radius: 0.25cm;
+    padding:0.15cm;
+    font-size: 0.45cm;
+    border: none;
+    z-index: 6;
+    padding-left: 1.25cm;
+  }
+  #place_input{
+    height:0.8cm;
+    width:0.8cm;
+    position: absolute;
+    left:2.25cm;
+    top:1.25cm;
+    z-index:7;
+  }
+  #loc-button{
+    position: absolute;
+    top:1cm;
+    height:1.3cm;
+    width:2.5cm;
+    font-size: 0.45cm;
+    padding:0.15cm;
+    left:12cm;
+    border-radius: 0.25cm;
+    border: none;
+    transition: 0.5s ease;
+    cursor: pointer;
+  }
+  #loc-button:hover{
+    transform: scale(0.98);
+  }
+  #suggestion_list {
+list-style-type: none;
+padding: 0;
+margin: 0;
+max-height: 200px;
+overflow-y: auto;
+background-color: #fff;
+border: 1px solid #ccc;
+border-radius: 4px;
+width:8cm;
+position: absolute;
+justify-content: center;
+top:2.2cm;
+left:2.6cm;
+z-index: 5;
+font-family: 'Poppins', sans-serif;
+}
+
+#suggestion_list li {
+padding: 8px;
+cursor: pointer;
+}
+#suggestion_list::-webkit-scrollbar{
+width:0px;
+}
+#suggestion_list li:hover {
+background-color: #f5f5f5;
+}
+
+#hospital_list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 10cm;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width:8cm;
+  position: absolute;
+  justify-content: center;
+  top:2.2cm;
+  left:2.6cm;
+  z-index: 5;
+  font-family: 'Poppins', sans-serif;
+  transition: height 0.5s ease;
+  }
+  
+  #hospital_list li {
+  padding: 8px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.459);
+  }
+
+  #hospital_list::-webkit-scrollbar-thumb{
+    background-color: #636363;
+    border-radius: 10px;
+  }
+  #hospital_list li:hover {
+  background-color: #f5f5f5;
+  }
+
+#hospital_button{
+  height:1cm;
+  padding: 0.5cm;
+  width:3cm;
+  position: absolute;
+  top:1.2cm;
+  left:15.5cm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-size: 0.4cm;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 0.5cm;
+  border: none;
+  transition: 0.5s linear ;
+}
+
+#hospital_button img{
+  height:0.5cm;
+  width:0.5cm;
+  margin-right: 0.25cm;
+}
+#pump_button{
+  height:1cm;
+  padding: 0.5cm;
+  width:4cm;
+  position: absolute;
+  top:1.2cm;
+  left:18.8cm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-size: 0.4cm;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 0.5cm;
+  border: none;
+  transition: 0.5s linear ;
+}
+
+#pump_button img{
+  height:0.5cm;
+  width:0.5cm;
+  margin-right: 0.25cm;
+}
+#police_button{
+  height:1cm;
+  padding: 0.5cm;
+  width:4.2cm;
+  position: absolute;
+  top:1.2cm;
+  left:23.1cm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-size: 0.4cm;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 0.5cm;
+  border: none;
+  transition: 0.5s linear ;
+}
+
+#police_button img{
+  height:0.5cm;
+  width:0.5cm;
+  margin-right: 0.25cm;
+}
+
+.directionButton, #start-travel{
+  height:1cm;
+  width:3cm;
+  border-radius: 0.25cm;
+  text-align: center;
+  border: none;
+  margin-left: 1.5cm;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.35cm;
+  font-weight: bold;
+  background-color: #007afc;
+  cursor: pointer;
+  color:white;
+  transition: 0.5s ease;
+  
+}
+
+#start-travel{
+  position: relative;
+  margin-top:0.5cm;
+  left:0.5cm;
+}
+.directionButton:hover,#start-travel:hover{
+  transform: scale(0.98);
+}
+#emergency_button{
+  height:1cm;
+  padding: 0.5cm;
+  width:5.6cm;
+  position: absolute;
+  top:1.2cm;
+  left:27.6cm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-size: 0.4cm;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 0.5cm;
+  border: none;
+  transition: 0.5s linear ;
+}
+
+#emergency_button img{
+  height:0.5cm;
+  width:0.5cm;
+  margin-right: 0.25cm;
+}
+
+#hospital_button:hover, 
+#pump_button:hover,
+ #police_button:hover,
+ #emergency_button:hover{
+
+    transform: scale(0.95);
+    cursor: pointer;
+}
+
+.emergency_number{
+  position:absolute;
+  top:2.5cm;
+  left:25.5cm;
+ height:5cm;
+ width:10cm;
+ overflow-y: auto; 
+ font-family: 'Poppins', sans-serif;
+ border-radius: 0.25cm;
+ background-color: whitesmoke;
+ display: none; 
+}
+
+.emergency_number::-webkit-scrollbar{
+ width: 0px;
+}
+.emergency_number li{
+  padding:0.45cm;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.463);
+}
+
+#route-info{
+  position: absolute;
+  height:auto;
+  overflow-y: auto;
+  width:7.225cm;
+  top:2.5cm;
+  left:11cm;
+  background-color: #23262d;
+  color:white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 100;
+  flex-wrap: wrap;
+  font-size: 0.35cm;
+  display: none;
+  padding:0.5cm;
+  border-radius: 0.5cm;
+}
+
+#route-info::-webkit-scrollbar{
+  width:0cm;
+}
+#route-info span{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+#route-info p{
+  display: flex;
+  justify-content: center;
+}
+
+.route{
+  position: relative;
+  left:1.5cm;
+ border-radius: 0.25cm;
+ color:white;
+ height:1.5cm;
+ width:4cm;
+ background-color: #393c42;
+ margin-bottom: 0.5cm;
+}
+
+.route-step{
+  position: relative;
+  left:0.18cm;
+ border-radius: 0.25cm;
+ color:white;
+ height:auto;
+ width:6.3cm;
+ background-color: #393c42;
+ padding: 0.25cm;
+}
+#route-info li{
+  list-style:decimal;
+
+}
+
+#anotherLocation{
+  height:1cm;
+  padding: 0.5cm;
+  width:4.5cm;
+  position: absolute;
+  top:1.2cm;
+  right:1.3cm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-size: 0.4cm;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 0.5cm;
+  border: none;
+  transition: 0.5s linear ;
+  cursor: pointer;
+}
+#anotherLocation:hover{
+  transform: scale(0.95);
+}
+#anotherLocation img{
+  height:0.5cm;
+  width:0.5cm;
+  margin-right: 0.25cm;
+}
+
+
+.location-options {
+  position: absolute;
+  top:1cm;
+  right:1.45cm;
+  width: 4cm;
+  background-color: #ffffff;
+  border-radius: 5px; 
+  display:none;
+}
+
+.location-options ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.location-options li {
+  text-align: center;
+  padding: 0.25cm;
+  border-bottom: 1px solid #ececec;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.4cm;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.location-options li:hover{
+  background-color: rgba(212, 210, 210, 0.952);
+}
+.location-options li:last-child {
+  border-bottom: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
